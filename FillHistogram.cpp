@@ -43,6 +43,9 @@ int main(int argc, char *argv[])
    TH1D HNJet("HNJet", "|eta| < 1.6", 50, 0, 50);
    TH1D HNJet30("HNJet30", "|eta| < 1.6, PT > 30", 15, 0, 15);
    TH1D HNJet40("HNJet40", "|eta| < 1.6, PT > 40", 15, 0, 15);
+   TH1D HNJet60("HNJet60", "|eta| < 1.6, PT > 60", 15, 0, 15);
+   TH1D HNJet80("HNJet80", "|eta| < 1.6, PT > 80", 15, 0, 15);
+   TH1D HNJet100("HNJet100", "|eta| < 1.6, PT > 100", 15, 0, 15);
    TH1D HRefJetPT("HRefJetPT", "|eta| < 1.6", 100, 0, 500);
    TH1D HRefJetEta("HRefJetEta", "PT > 30", 100, -5, 5);
    TH1D HRefJetPhi("HRefJetPhi", "|eta| < 1.6, PT > 30", 100, -M_PI, M_PI);
@@ -241,7 +244,7 @@ int main(int argc, char *argv[])
       HNGenJet30.Fill(ngen30, wz);
       HNGenJet40.Fill(ngen40, wz);
      
-      int njet0 = 0, njet30 = 0, njet40 = 0;
+      int njet0 = 0, njet30 = 0, njet40 = 0, njet60 = 0, njet80 = 0, njet100 = 0;
       for(int iJ = 0; iJ < nref; iJ++)
       {
          if((*jteta)[iJ] < -1.3 && (*jtphi)[iJ] < -0.8 && (*jtphi)[iJ] > -1.7)
@@ -279,6 +282,9 @@ int main(int argc, char *argv[])
          if((*jtpt)[iJ] > 0)    njet0 = njet0 + 1;
          if((*jtpt)[iJ] > 30)   njet30 = njet30 + 1;
          if((*jtpt)[iJ] > 40)   njet40 = njet40 + 1;
+         if((*jtpt)[iJ] > 60)   njet60 = njet60 + 1;
+         if((*jtpt)[iJ] > 80)   njet80 = njet80 + 1;
+         if((*jtpt)[iJ] > 100)   njet100 = njet100 + 1;
 
          double DEta = (*jteta)[iJ] - (*WTAeta)[iJ];
          double DPhi = (*jtphi)[iJ] - (*WTAphi)[iJ];
@@ -293,6 +299,9 @@ int main(int argc, char *argv[])
       HNJet.Fill(njet0, wz);
       HNJet30.Fill(njet30, wz);
       HNJet40.Fill(njet40, wz);
+      HNJet60.Fill(njet60, wz);
+      HNJet80.Fill(njet80, wz);
+      HNJet100.Fill(njet100, wz);
 
       int lP = -1;   // leading photon index
       int npho0 = 0, npho40 = 0, npho60 = 0;
@@ -443,6 +452,9 @@ int main(int argc, char *argv[])
    HNJet.Write();
    HNJet30.Write();
    HNJet40.Write();
+   HNJet60.Write();
+   HNJet80.Write();
+   HNJet100.Write();
    HRefJetPT.Write();
    HRefJetEta.Write();
    HRefJetPhi.Write();
