@@ -206,10 +206,10 @@ int main(int argc, char *argv[])
       HEvtRho_avg.Fill(rhoavg,wz);
 
       //if(hiBin>=20) continue;
-      if(hiHF<3039.47) continue;//10% 3039.47, 0% 5199.95
+      //if(hiHF<3039.47) continue;//10% 3039.47, 0% 5199.95
 
-      //if(hiHF>=3039.47) HEvtRho_avg_cent.Fill(rhoavg,wz);
-      HEvtRho_avg_cent.Fill(rhoavg,wz);
+      if(hiHF>=3039.47) HEvtRho_avg_cent.Fill(rhoavg,wz);
+      //HEvtRho_avg_cent.Fill(rhoavg,wz);
 
       if(pthat >= PTHatMin)
          HPTHatMin.Fill(pthat, wz);

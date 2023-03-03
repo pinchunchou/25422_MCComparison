@@ -1,6 +1,6 @@
 #!/bin/bash
 
-Fraction=1
+Fraction=0.1
 
 for i in 15_30 30_50 50_80 80_120 120_170 170_2000
 do
@@ -43,5 +43,5 @@ done
 
 ./ExecuteShow --Input regulate_aa_qcd_extra.root,regulate_aa_qcd_aod.root,regulate_aa_qcd_extra_old.root,regulate_aa_qcd.root\
 	--Label Extra,AOD,ExtraOld,MiniAOD \
-	--Output PlotComparison_cent10_20230303.pdf \
-	--Comments "Centrality 0-10%","Fraction = 1.0"
+	--Output PlotComparison_nocent_20230303.pdf \
+	--Comment "Centrality 0-100%","Fraction = 0.1"
