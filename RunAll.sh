@@ -43,5 +43,5 @@ done
 
 ./ExecuteShow --Input regulate_aa_qcd_extra.root,regulate_aa_qcd_aod.root,regulate_aa_qcd_extra_old.root,regulate_aa_qcd.root\
 	--Label Extra,AOD,ExtraOld,MiniAOD \
-	--Output PlotComparison_cent10_20230301.pdf
-
+	--Output PlotComparison_cent10_20230303.pdf \
+	--Comments "Centrality 0-10%","Fraction = 1.0"

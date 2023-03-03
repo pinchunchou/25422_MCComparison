@@ -24,6 +24,7 @@ int main(int argc, char *argv[])
 
    vector<string> Input = CL.GetStringVector("Input");
    vector<string> Label = CL.GetStringVector("Label");
+   vector<string> Comments = CL.GetStringVector("Comment", vector<string>());
    string Output = CL.Get("Output");
 
    if(Label.size() < Input.size())
@@ -35,8 +36,9 @@ int main(int argc, char *argv[])
       Files[i] = new TFile(Input[i].c_str());
 
    PdfFileHelper PdfFile(Output);
-   PdfFile.AddTextPage("MC Comparisons, with centrality requirement 0 to 10 %. Frac = 1");
-
+   //PdfFile.AddTextPage("MC Comparisons, with centrality requirement 0 to 10 %. Frac = 1");
+   PdfFile.AddTextPage("MC Comparisons");
+   if(Comments.size() > 0) PdfFile.AddTextPage(Comments);
    TLatex Latex;
    Latex.SetNDC();
    Latex.SetTextFont(42);
