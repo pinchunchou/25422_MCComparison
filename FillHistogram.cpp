@@ -58,8 +58,8 @@ int main(int argc, char *argv[])
    TH1D HJetDPhi("HJetDPhi", "|eta| < 1.6, PT > 30", 100, -0.5, 0.5);
    TH1D HJetDR("HJetDR", "|eta| < 1.6, PT > 30", 100, 0, 1);
 
-   TH1D HJetPToRefPT("HJetPToRefPT", "|eta| < 1.6, Jet PT > 30", 100, 0, 2.5);
-   TH1D HRawPToRefPT("HRawPToRefPT", "|eta| < 1.6, Jet PT > 30", 100, 0, 2.5);
+   TH1D HJetPToRefPT("HJetPToRefPT", "|eta| < 1.6, Ref PT > 30", 100, 0, 2.5);
+   TH1D HRawPToRefPT("HRawPToRefPT", "|eta| < 1.6, Ref PT > 30", 100, 0, 2.5);
 
    TH1D HNPho("HNPho", "|eta| < 1.442", 14, 0, 14);
    TH1D HNPho40("HNPho40", "|eta| < 1.442, Et > 40", 10, 0, 10);
@@ -272,9 +272,9 @@ int main(int argc, char *argv[])
          HJetPT.Fill((*jtpt)[iJ], wz);
          float jtptorefpt = (float) (*jtpt)[iJ]/(*refpt)[iJ];
          float rawptorefpt = (float) (*rawpt)[iJ]/(*refpt)[iJ];
-         if((*jtpt)[iJ] > 30)
+         if((*refpt)[iJ] > 30)
             HJetPToRefPT.Fill(jtptorefpt, wz);
-         if((*jtpt)[iJ] > 30)
+         if((*refpt)[iJ] > 30)
             HRawPToRefPT.Fill(rawptorefpt, wz);
          
          if((*jtpt)[iJ] > 30)
